@@ -1,0 +1,7 @@
+- id: elisp-lint
+  name: Run Emacs elisp-lint
+  description: Run all the elisp-lint checks
+  entry: elisp-lint-batch.el
+  language: script
+  files: '\.el$'
+  require_serial: true
