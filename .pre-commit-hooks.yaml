@@ -4,3 +4,13 @@
   entry: elisp-lint-batch.el
   language: script
   files: '\.el$'
+
+# TODO: A dirty hack for the byte-compilation artifacts produced by
+# the elisp-lint hook.  It would be wise to consider
+# a different approach.
+- id: elisp-lint-cleanup
+  name: byte-compile clean-up
+  description: Cleanup after elisp-lint
+  language: system
+  entry: "git clean -f '*.elc' '*-autoloads.el*'"
+  pass_filenames: false
