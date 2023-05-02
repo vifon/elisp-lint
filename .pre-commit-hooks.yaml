@@ -4,4 +4,3 @@
   entry: elisp-lint-batch.el
   language: script
   files: '\.el$'
-  require_serial: true
