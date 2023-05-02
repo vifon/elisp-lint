@@ -4,6 +4,7 @@
   entry: elisp-lint-batch.el
   language: script
   files: '\.el$'
+  require_serial: true
 
 # TODO: A dirty hack for the byte-compilation artifacts produced by
 # the elisp-lint hook.  It would be wise to consider
