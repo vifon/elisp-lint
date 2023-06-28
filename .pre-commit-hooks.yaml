@@ -13,5 +13,5 @@
   name: byte-compile clean-up
   description: Cleanup after elisp-lint
   language: system
-  entry: "git clean -f '*.elc' '*-autoloads.el*'"
+  entry: "env -u GIT_LITERAL_PATHSPECS git clean -f '*.elc' '*-autoloads.el*'"
   pass_filenames: false
