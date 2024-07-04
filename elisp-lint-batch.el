@@ -1,11 +1,20 @@
 #!/usr/bin/env -S emacs --batch --load
 ;;; -*- lexical-binding: t; -*-
 
-(let ((pkg-root (expand-file-name ".emacs.d/straight/repos"
-                                  (getenv "HOME"))))
-  (dolist (pkg '("package-lint" "dash.el"))
-    (add-to-list 'load-path
-                 (expand-file-name pkg pkg-root))))
+(let ((straight-path
+       (expand-file-name ".emacs.d/straight/repos/"
+                         (getenv "HOME"))))
+  ;; Check if package-lint is installed with straight.el,
+  ;; reuse it if possible.
+  (if (file-directory-p straight-path)
+      (dolist (pkg '("package-lint" "dash.el"))
+        (add-to-list 'load-path
+                     (expand-file-name pkg straight-path)))
+    ;; Use package.el otherwise.
+    (package-initialize)
+    (package-refresh-contents)
+    (package-install 'package-lint t)
+    (package-install 'dash t)))
 
 (when (string= (car command-line-args-left) "--main-file")
   (pop command-line-args-left)
