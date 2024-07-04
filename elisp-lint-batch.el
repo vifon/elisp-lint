@@ -12,7 +12,8 @@
                      (expand-file-name pkg straight-path)))
     ;; Use package.el otherwise.
     (package-initialize)
-    (package-refresh-contents)
+    (unless package-archive-contents
+      (package-refresh-contents))
     (package-install 'package-lint t)
     (package-install 'dash t)))
 
