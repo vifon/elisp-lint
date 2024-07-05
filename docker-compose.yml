@@ -1,5 +1,4 @@
 services:
   emacs:
     image: vifon/elisp-lint:latest
-    build:
-      dockerfile: ./Dockerfile
+    build: .
