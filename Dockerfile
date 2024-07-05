@@ -1,8 +1,7 @@
-FROM ubuntu
+FROM alpine
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends --no-install-suggests \
-      emacs-nox git pre-commit shellcheck
+RUN apk --no-cache add \
+    emacs-nox git pre-commit shellcheck
 RUN emacs --batch \
     --funcall package-initialize \
     --funcall package-refresh-contents \
